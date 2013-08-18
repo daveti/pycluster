@@ -8,6 +8,7 @@ from util import importData, euclidean_distance, manhattan_distance, pearson_dis
 from pam import kmedoids
 import random
 import sys
+import time
 
 # Global variables
 debugEnabled = False 	# Debug
@@ -147,7 +148,12 @@ def main():
 		for i in range(10):
 			print('data=', data[i])
 
+	# Add timeing
+	startTime = time.time()
 	best_cost, best_choice, best_medoids = clara(data, k)
+	endTime = time.time()
+
+	print('best_time: ', endTime - startTime)
 	print('best_cost: ', best_cost)
 	print('best_choice: ', best_choice)
 	print('best_medoids: ', best_medoids)
